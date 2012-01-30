@@ -74,6 +74,30 @@ class AcSearchIndexHelper extends Controller
 	{
 		return str_replace(',', ', ', $varValue);
 	}
+
+
+	/**
+	 * Return all used languages in the search index
+	 * 
+	 * @param void
+	 * @return array
+	 */
+	public function getSiteLanguages()
+	{
+		$this->import('Database');
+		$this->loadLanguageFile('languages');
+
+		$arrReturn = array();
+
+		$objLanguages = $this->Database->query('SELECT DISTINCT language FROM tl_search_index');
+		while ($objLanguages->next())
+		{
+			// get the translated language name
+			$arrReturn[$objLanguages->language] = $GLOBALS['TL_LANG']['LNG'][$objLanguages->language];
+		}
+
+		return $arrReturn;
+	}
 }
 
 ?>
