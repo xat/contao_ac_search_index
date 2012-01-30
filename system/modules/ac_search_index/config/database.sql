@@ -25,4 +25,5 @@ CREATE TABLE `tl_module` (
   `ac_si_multiple` char(1) NOT NULL default '0',
   `ac_si_separator` varchar(250) NOT NULL default '',
   `ac_si_autoTrim` char(1) NOT NULL default '0',
+  `ac_si_defaultValue` varchar(250) NOT NULL default '',
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
