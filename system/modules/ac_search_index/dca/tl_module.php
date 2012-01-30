@@ -33,7 +33,8 @@
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ac_search_index'] = '
 {title_legend},name,type;
-{ac_search_index_legend},ac_si_language,ac_si_blacklist,ac_si_minLength,ac_si_width,ac_si_maxChoices,ac_si_zIndex,ac_si_delay,ac_si_separator,ac_si_autoSubmit,ac_si_selectFirst,ac_si_multiple,ac_si_autoTrim;
+{ac_search_index_legend},ac_si_language,ac_si_blacklist,ac_si_minLength,ac_si_width,ac_si_maxChoices,ac_si_zIndex,ac_si_delay,ac_si_separator,ac_si_defaultValue,ac_si_autoSubmit,ac_si_selectFirst,ac_si_multiple,ac_si_autoTrim;
+{redirect_legend},jumpTo;
 {protected_legend:hide},protected;{expert_legend:hide},guests';
 
 
@@ -110,7 +111,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_autoSubmit'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
-	'eval'				=> array('tl_class'=>'w50 m12')
+	'eval'				=> array('tl_class'=>'w50 m12 clr')
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_selectFirst'] = array
@@ -147,6 +148,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_autoTrim'] = array
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
 	'eval'				=> array('tl_class'=>'w50 m12')
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_defaultValue'] = array
+(
+	'label'				=> &$GLOBALS['TL_LANG']['tl_module']['ac_si_defaultValue'],
+	'exclude'			=> true,
+	'inputType'			=> 'text',
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum', 'maxlength'=>250)
 );
 
 ?>
