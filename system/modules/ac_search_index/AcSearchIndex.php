@@ -85,7 +85,7 @@ class AcSearchIndex extends Controller
 
 
 			// get all keywords from the database
-			$objKeyword = $this->Database->prepare('SELECT DISTINCT word FROM tl_search_index WHERE ' . implode(' AND ', $arrWhere))
+			$objKeyword = $this->Database->prepare('SELECT DISTINCT word FROM tl_search_index WHERE ' . implode(' AND ', $arrWhere) . ' ORDER BY relevance DESC')
 										 ->limit($intLimit)
 										 ->executeUncached($arrValues);
 
