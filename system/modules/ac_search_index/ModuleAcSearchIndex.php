@@ -77,7 +77,7 @@ class ModuleAcSearchIndex extends Module
 	{
 		// create the new Auto Completer object
 		$objAutoCompleter = new AutoCompleter();
-		$objAutoCompleter->formId = $this->id;
+		$objAutoCompleter->formId = 'ctrl_keywords_' . $this->id;
 		$objAutoCompleter->minLength = $this->ac_si_minLength;
 		$objAutoCompleter->width = $this->ac_si_width;
 		$objAutoCompleter->maxChoices = $this->ac_si_maxChoices;
@@ -96,12 +96,15 @@ class ModuleAcSearchIndex extends Module
 									->limit(1)
 									->execute($this->jumpTo);
 
-		$arrJumpTo = (array) $objJumpTo->fetchAssoc();
-
+		// add the jumpTo Url
+		if ($objJumpTo->numRows == 1)
+		{
+			$arrJumpTo = (array) $objJumpTo->fetchAssoc();
+			$this->Template->action = $this->generateFrontendUrl($arrJumpTo);
+		}
 
 		// add some values to the template
-		$this->Template->action = $this->generateFrontendUrl($arrJumpTo);
-		$this->Template->uniqueId = $this->id;
+		$this->Template->uniqueId = 'ctrl_keywords_' . $this->id;
 		$this->Template->search = specialchars($GLOBALS['TL_LANG']['MSC']['searchLabel']);
 		$this->Template->defaultValue = $this->ac_si_defaultValue;
 	}

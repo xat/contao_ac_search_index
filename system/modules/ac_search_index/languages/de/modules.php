@@ -31,6 +31,6 @@
 /**
  * Front end modules
  */
-$GLOBALS['TL_LANG']['FMD']['ac_search_index'] = 'Suchmodul - Auto Vervollständigung';
+$GLOBALS['TL_LANG']['FMD']['ac_search_index'] = array('Suchmodul - Auto Vervollständigung', 'Ein Such-Modul welches eine Auto-Vervollständigung basierend auf dem aktuellen Suchindex bietet.');
 
 ?>
