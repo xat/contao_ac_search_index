@@ -37,7 +37,7 @@
  * @package    ac_search_index
  * @license    LGPL
  */
-class AcSearchIndex extends Controller
+class AcSearchIndex extends System
 {
 	/**
 	 * Return all search index choices based on the requested modul
@@ -62,7 +62,6 @@ class AcSearchIndex extends Controller
 			$arrValues = array();
 
 			$arrLanguages = (array) deserialize($objAcModule->ac_si_language);
-			$intLimit = (int) $objAcModule->ac_si_maxChoices;
 
 
 			// the main condition
@@ -86,7 +85,7 @@ class AcSearchIndex extends Controller
 
 			// get all keywords from the database
 			$objKeyword = $this->Database->prepare('SELECT DISTINCT word FROM tl_search_index WHERE ' . implode(' AND ', $arrWhere) . ' ORDER BY relevance DESC')
-										 ->limit($intLimit)
+										 ->limit($objAcModule->ac_si_maxChoices)
 										 ->executeUncached($arrValues);
 
 			return $objKeyword->fetchEach('word');
