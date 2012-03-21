@@ -32,10 +32,11 @@
  * Palettes
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ac_search_index'] = '
-{title_legend},name,type;
+{title_legend},name,headline,type;
 {ac_search_index_legend},ac_si_language,ac_si_blacklist,ac_si_minLength,ac_si_width,ac_si_maxChoices,ac_si_zIndex,ac_si_delay,ac_si_separator,ac_si_defaultValue,ac_si_autoSubmit,ac_si_selectFirst,ac_si_multiple,ac_si_autoTrim;
 {redirect_legend},jumpTo;
-{protected_legend:hide},protected;{expert_legend:hide},guests';
+{protected_legend:hide},protected;
+{expert_legend:hide},guests,cssID,space';
 
 
 /**
