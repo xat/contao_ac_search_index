@@ -88,7 +88,11 @@ class AcSearchIndex extends System
 										 ->limit($objAcModule->ac_si_maxChoices)
 										 ->executeUncached($arrValues);
 
-			return $objKeyword->fetchEach('word');
+			// if we found some choices, return them
+			if ($objKeyword->numRows > 0)
+			{
+				return $objKeyword->fetchEach('word');
+			}
 		}
 	}
 }
