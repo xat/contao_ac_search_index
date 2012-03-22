@@ -1,0 +1,16 @@
+
+<!-- indexer::stop -->
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<?php if ($this->headline): ?>
+	<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+<?php endif; ?>
+
+<form action="<?php echo $this->action; ?>" method="get">
+<div class="formbody">
+<input type="text" name="keywords" id="<?php echo $this->uniqueId; ?>" class="text" value="<?php echo $this->defaultValue; ?>" onblur="if(this.value == '') { this.value='<?php echo $this->defaultValue; ?>'}" onfocus="if (this.value == '<?php echo $this->defaultValue; ?>') {this.value=''}">
+<input type="submit" id="ctrl_submit_<?php echo $this->uniqueId; ?>" class="submit" value="<?php echo $this->search; ?>">
+</div>
+</form>
+
+</div>
+<!-- indexer::continue -->
