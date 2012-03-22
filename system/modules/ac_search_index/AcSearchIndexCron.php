@@ -45,7 +45,7 @@ class AcSearchIndexCron extends Controller
 	 * @param int $intLimit
 	 * @return void
 	 */
-	public function setMissingRootIds($intLimit=25)
+	public function setMissingRootIds($intLimit=50)
 	{
 		$this->import('Database');
 
