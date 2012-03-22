@@ -98,6 +98,37 @@ class AcSearchIndexHelper extends Controller
 
 		return $arrReturn;
 	}
+
+
+	/**
+	 * Return all root pages
+	 * 
+	 * @param void
+	 * @return array
+	 */
+	public function getRootSites()
+	{
+		$this->import('Database');
+
+		$arrReturn = array();
+		$objRootSites = $this->Database->query('SELECT id,title,url FROM tl_page WHERE type="root"');
+
+		// prepare the root sites
+		while ($objRootSites->next())
+		{
+			$strValue = $objRootSites->title;
+
+			// add the url as a link to the template
+			if ($objRootSites->url != '')
+			{
+				$strValue .= ' (<a href="' . $objRootSites->url . '" title="' . $objRootSites->title . '">' . $objRootSites->url . '</a>)';
+			}
+
+			$arrReturn[$objRootSites->id] = $strValue;
+		}
+
+		return $arrReturn;
+	}
 }
 
 ?>

@@ -33,7 +33,7 @@
  */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ac_search_index'] = '
 {title_legend},name,headline,type;
-{ac_search_index_legend},ac_si_language,ac_si_blacklist,ac_si_minLength,ac_si_width,ac_si_maxChoices,ac_si_zIndex,ac_si_delay,ac_si_separator,ac_si_defaultValue,ac_si_autoSubmit,ac_si_selectFirst,ac_si_multiple,ac_si_autoTrim;
+{ac_search_index_legend},ac_si_language,ac_si_root_sites,ac_si_blacklist,ac_si_minLength,ac_si_width,ac_si_maxChoices,ac_si_zIndex,ac_si_delay,ac_si_separator,ac_si_defaultValue,ac_si_autoSubmit,ac_si_selectFirst,ac_si_multiple,ac_si_autoTrim;
 {redirect_legend},jumpTo;
 {protected_legend:hide},protected;
 {expert_legend:hide},guests,cssID,space';
@@ -48,7 +48,16 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_language'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'options_callback'	=> array('AcSearchIndexHelper', 'getSiteLanguages'),
-	'eval'				=> array('tl_class'=>'w50', 'multiple'=>true)
+	'eval'				=> array('tl_class'=>'long clr', 'multiple'=>true)
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_root_sites'] = array
+(
+	'label'				=> &$GLOBALS['TL_LANG']['tl_module']['ac_si_root_sites'],
+	'exclude'			=> true,
+	'inputType'			=> 'checkbox',
+	'options_callback'	=> array('AcSearchIndexHelper', 'getRootSites'),
+	'eval'				=> array('tl_class'=>'long clr', 'multiple'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_blacklist'] = array

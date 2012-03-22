@@ -32,6 +32,7 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_module']['ac_si_language']		= array('Sprachen', 'Bitte wählen Sie alle Sprachen aus die Verwendet werden sollen.');
+$GLOBALS['TL_LANG']['tl_module']['ac_si_root_sites']	= array('Root-Seiten', 'Bitte wählen Sie alle Webseitenstartpunkte aus welche für die Such-Vorschläge verwendet werden sollen. Wenn Sie keine Seiten auswählen werden alle verfügbaren Seiten verwendet.');
 $GLOBALS['TL_LANG']['tl_module']['ac_si_blacklist']		= array('Sperrliste', 'Hier können Sie eine komma getrennte Liste von Wörtern eingeben welche nicht vervollständigt werden sollen.');
 $GLOBALS['TL_LANG']['tl_module']['ac_si_minLength']		= array('Mindestlänge', 'Bitte geben Sie eine Mindestlänge ein. Erst wenn diese Anzahl von Buchstaben überschritten wird, werdne Such-Vorschläge angezeigt.');
 $GLOBALS['TL_LANG']['tl_module']['ac_si_width']			= array('Breite', 'Bitte geben Sie eine Breite der Suchvorschläge ein.');
