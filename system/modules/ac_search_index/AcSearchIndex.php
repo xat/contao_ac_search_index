@@ -67,7 +67,7 @@ class AcSearchIndex extends System
 
 			// the main condition
 			$arrWhere[] = 'word LIKE ?';
-			$arrValues[] = '%' . $this->Input->post('value') . '%';
+			$arrValues[] = '%' . strtolower($this->Input->post('value')) . '%';
 
 			// the blacklist
 			if (strlen($objAcModule->ac_si_blacklist) > 0)
