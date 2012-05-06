@@ -107,6 +107,7 @@ class ModuleAcSearchIndex extends Module
 		$this->Template->uniqueId = 'ctrl_keywords_' . $this->id;
 		$this->Template->search = specialchars($GLOBALS['TL_LANG']['MSC']['searchLabel']);
 		$this->Template->defaultValue = $this->ac_si_defaultValue;
+		$this->Template->hideSubmitButton = $this->ac_si_hide_submit_button;
 	}
 }
 

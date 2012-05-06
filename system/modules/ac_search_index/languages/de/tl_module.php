@@ -45,6 +45,7 @@ $GLOBALS['TL_LANG']['tl_module']['ac_si_multiple']		= array('mehrere Wörter erl
 $GLOBALS['TL_LANG']['tl_module']['ac_si_separator']		= array('Trennzeichen', 'Bitte geben Sie das Trennzeichen ein, dass verwendet werden soll wenn mehrere Wörter erlaubt sind.');
 $GLOBALS['TL_LANG']['tl_module']['ac_si_autoTrim']		= array('Leerzeichen entfernen', 'Aktivieren Sie diese Option um Leerzeichen vor und am ende eines Wortes automatisch zu entfernen.');
 $GLOBALS['TL_LANG']['tl_module']['ac_si_defaultValue']	= array('Standardwert', 'Bitte geben Sie einen Standard-Wert für das Suchformular ein. Dieser Wert wird automatisch entfernt sobald das Feld den "fokus" bekommt.');
+$GLOBALS['TL_LANG']['tl_module']['ac_si_hide_submit_button'] = array('Absendebutton entfernen', 'Aktivieren Sie diese Option um den Absendebutton aus dem Template zu entfernen.');
 
 
 /**
