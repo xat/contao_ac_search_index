@@ -88,6 +88,7 @@ class ModuleAcSearchIndex extends Module
 		$objAutoCompleter->multiple = $this->ac_si_multiple;
 		$objAutoCompleter->separator = ($this->ac_si_separator == '') ? ' ' : $this->ac_si_separator;
 		$objAutoCompleter->autoTrim = $this->ac_si_autoTrim;
+		$objAutoCompleter->relative = $this->ac_si_relative;
 		$objAutoCompleter->generate();
 
 
