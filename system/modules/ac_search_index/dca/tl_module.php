@@ -179,11 +179,11 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_hide_submit_button'] = array
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_relative'] = array
 (
-        'label'                         => &$GLOBALS['TL_LANG']['tl_module']['ac_si_relative'],
-        'exclude'                       => true,
-        'inputType'                     => 'checkbox',
-        'default'                       => 0,
-        'eval'                          => array('tl_class'=>'w50 m12')
+	'label'				=> &$GLOBALS['TL_LANG']['tl_module']['ac_si_relative'],
+	'exclude'			=> true,
+	'inputType'			=> 'checkbox',
+	'default'			=> 0,
+	'eval'				=> array('tl_class'=>'w50 m12')
 );
 
 ?>
