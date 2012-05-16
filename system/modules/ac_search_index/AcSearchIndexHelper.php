@@ -111,7 +111,7 @@ class AcSearchIndexHelper extends Controller
 		$this->import('Database');
 
 		$arrReturn = array();
-		$objRootSites = $this->Database->query('SELECT id,title,url FROM tl_page WHERE type="root"');
+		$objRootSites = $this->Database->query('SELECT id,title,dns FROM tl_page WHERE type="root"');
 
 		// prepare the root sites
 		while ($objRootSites->next())
@@ -119,9 +119,9 @@ class AcSearchIndexHelper extends Controller
 			$strValue = $objRootSites->title;
 
 			// add the url as a link to the template
-			if ($objRootSites->url != '')
+			if ($objRootSites->dns != '')
 			{
-				$strValue .= ' (<a href="' . $objRootSites->url . '" title="' . $objRootSites->title . '">' . $objRootSites->url . '</a>)';
+				$strValue .= ' (<a href="http://' . $objRootSites->dns . '" title="' . $objRootSites->title . '">' . $objRootSites->dns . '</a>)';
 			}
 
 			$arrReturn[$objRootSites->id] = $strValue;
