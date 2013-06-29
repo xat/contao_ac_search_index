@@ -29,7 +29,7 @@
 
 
 /**
- * Class ModuleAcSearchIndex
+ * Class ModuleMootoolsAcSearchIndex
  * Provide helper methods for the auto completer
  * 
  * @copyright  Leo Unglaub 2012
@@ -37,7 +37,7 @@
  * @package    ac_search_index
  * @license    LGPL
  */
-class ModuleAcSearchIndex extends Module
+class ModuleMootoolsAcSearchIndex extends Module
 {
 
 	/**
@@ -76,7 +76,7 @@ class ModuleAcSearchIndex extends Module
 	protected function compile()
 	{
 		// create the new Auto Completer object
-		$objAutoCompleter = new AutoCompleter();
+		$objAutoCompleter = new MootoolsAutoCompleter();
 		$objAutoCompleter->formId = 'ctrl_keywords_' . $this->id;
 		$objAutoCompleter->minLength = $this->ac_si_minLength;
 		$objAutoCompleter->width = $this->ac_si_width;

@@ -31,9 +31,16 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['ac_search_index'] = '
+$GLOBALS['TL_DCA']['tl_module']['palettes']['mootools_ac_search_index'] = '
 {title_legend},name,headline,type;
 {ac_search_index_legend},ac_si_language,ac_si_root_sites,ac_si_blacklist,ac_si_minLength,ac_si_width,ac_si_maxChoices,ac_si_zIndex,ac_si_delay,ac_si_separator,ac_si_defaultValue,ac_si_autoSubmit,ac_si_selectFirst,ac_si_multiple,ac_si_autoTrim,ac_si_hide_submit_button,ac_si_relative;
+{redirect_legend},jumpTo;
+{protected_legend:hide},protected;
+{expert_legend:hide},guests,cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['jquery_ac_search_index'] = '
+{title_legend},name,headline,type;
+{ac_search_index_legend},ac_si_language,ac_si_root_sites,ac_si_blacklist,ac_si_minLength,ac_si_delay,ac_si_hide_submit_button;
 {redirect_legend},jumpTo;
 {protected_legend:hide},protected;
 {expert_legend:hide},guests,cssID,space';
@@ -48,7 +55,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_language'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'options_callback'	=> array('AcSearchIndexHelper', 'getSiteLanguages'),
-	'eval'				=> array('tl_class'=>'long clr', 'multiple'=>true)
+	'eval'				=> array('tl_class'=>'long clr', 'multiple'=>true),
+	'sql'				=> "blob NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_root_sites'] = array
@@ -57,7 +65,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_root_sites'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'options_callback'	=> array('AcSearchIndexHelper', 'getRootSites'),
-	'eval'				=> array('tl_class'=>'long clr', 'multiple'=>true)
+	'eval'				=> array('tl_class'=>'long clr', 'multiple'=>true),
+	'sql'				=> "blob NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_blacklist'] = array
@@ -67,7 +76,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_blacklist'] = array
 	'inputType'			=> 'textarea',
 	'load_callback'		=> array(array('AcSearchIndexHelper', 'loadIgnoreWords')),
 	'save_callback'		=> array(array('AcSearchIndexHelper', 'saveIgnoreWords')),
-	'eval'				=> array('tl_class'=>'clr long', 'style'=>'height:100px;')
+	'eval'				=> array('tl_class'=>'clr long', 'style'=>'height:100px;'),
+	'sql'				=> "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_minLength'] = array
@@ -76,7 +86,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_minLength'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'text',
 	'default'			=> 2,
-	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'digit')
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'digit'),
+	'sql'				=> "int(10) NOT NULL default '2'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_width'] = array
@@ -85,7 +96,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_width'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'text',
 	'default'			=> 'inherit',
-	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum')
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum'),
+	'sql'				=> "varchar(20) NOT NULL default 'inherit'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_maxChoices'] = array
@@ -94,7 +106,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_maxChoices'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'text',
 	'default'			=> 10,
-	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'digit')
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'digit'),
+	'sql'				=> "int(10) NOT NULL default '10'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_zIndex'] = array
@@ -103,7 +116,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_zIndex'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'text',
 	'default'			=> 42,
-	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum')
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum'),
+	'sql'				=> "int(10) NOT NULL default '42'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_delay'] = array
@@ -112,7 +126,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_delay'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'text',
 	'default'			=> 400,
-	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum')
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum'),
+	'sql'				=> "int(10) NOT NULL default '400'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_autoSubmit'] = array
@@ -121,7 +136,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_autoSubmit'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
-	'eval'				=> array('tl_class'=>'w50 m12 clr')
+	'eval'				=> array('tl_class'=>'w50 m12 clr'),
+	'sql'				=> "char(1) NOT NULL default '0'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_selectFirst'] = array
@@ -130,7 +146,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_selectFirst'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
-	'eval'				=> array('tl_class'=>'w50 m12')
+	'eval'				=> array('tl_class'=>'w50 m12'),
+	'sql'				=> "char(1) NOT NULL default '0'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_multiple'] = array
@@ -139,7 +156,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_multiple'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
-	'eval'				=> array('tl_class'=>'w50 m12')
+	'eval'				=> array('tl_class'=>'w50 m12'),
+	'sql'				=> "char(1) NOT NULL default '0'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_separator'] = array
@@ -148,7 +166,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_separator'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'text',
 	'default'			=> ' ',
-	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum', 'maxlength'=>250)
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum', 'maxlength'=>250),
+	'sql'				=> "varchar(250) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_autoTrim'] = array
@@ -157,7 +176,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_autoTrim'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
-	'eval'				=> array('tl_class'=>'w50 m12')
+	'eval'				=> array('tl_class'=>'w50 m12'),
+	'sql'				=> "char(1) NOT NULL default '0'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_defaultValue'] = array
@@ -165,7 +185,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_defaultValue'] = array
 	'label'				=> &$GLOBALS['TL_LANG']['tl_module']['ac_si_defaultValue'],
 	'exclude'			=> true,
 	'inputType'			=> 'text',
-	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum', 'maxlength'=>250)
+	'eval'				=> array('tl_class'=>'w50', 'rgxp'=>'alnum', 'maxlength'=>250),
+	'sql'				=> "varchar(250) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_hide_submit_button'] = array
@@ -174,7 +195,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_hide_submit_button'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
-	'eval'				=> array('tl_class'=>'w50 m12')
+	'eval'				=> array('tl_class'=>'w50 m12'),
+	'sql'				=> "char(1) NOT NULL default '0'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_relative'] = array
@@ -183,7 +205,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['ac_si_relative'] = array
 	'exclude'			=> true,
 	'inputType'			=> 'checkbox',
 	'default'			=> 0,
-	'eval'				=> array('tl_class'=>'w50 m12')
+	'eval'				=> array('tl_class'=>'w50 m12'),
+	'sql'				=> "char(1) NOT NULL default '0'"
 );
 
 ?>

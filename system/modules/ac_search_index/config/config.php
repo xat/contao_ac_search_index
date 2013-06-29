@@ -43,6 +43,7 @@ $GLOBALS['TL_CRON']['hourly'][] = array('AcSearchIndexCron', 'setMissingRootIds'
 /**
  * Front end modules
  */
-$GLOBALS['FE_MOD']['application']['ac_search_index'] = 'ModuleAcSearchIndex';
+$GLOBALS['FE_MOD']['application']['mootools_ac_search_index'] = 'ModuleMootoolsAcSearchIndex';
+$GLOBALS['FE_MOD']['application']['jquery_ac_search_index'] = 'ModuleJqueryAcSearchIndex';
 
 ?>
