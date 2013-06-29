@@ -51,7 +51,7 @@ class AcSearchIndex extends System
 		$intAcid = str_replace('ctrl_keywords_', '', $this->Input->get('acid'));
 
 		// try loading all settings from tl_module
-		$objAcModule = $this->Database->prepare('SELECT ac_si_language,ac_si_root_sites,ac_si_blacklist,ac_si_maxChoices FROM tl_module WHERE type="ac_search_index" AND id=?')
+		$objAcModule = $this->Database->prepare('SELECT ac_si_language,ac_si_root_sites,ac_si_blacklist,ac_si_maxChoices FROM tl_module WHERE (type="mootools_ac_search_index" OR type="jquery_ac_search_index") AND id=?')
 									  ->limit(1)
 									  ->executeUncached($intAcid);
 
