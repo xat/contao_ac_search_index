@@ -7,7 +7,7 @@
 
 <form action="<?php echo $this->action; ?>" method="get">
 <div class="formbody">
-<input type="search" name="keywords" id="<?php echo $this->uniqueId; ?>" class="text" value="<?php echo $this->defaultValue; ?>" onblur="if(this.value == '') { this.value='<?php echo $this->defaultValue; ?>'}" onfocus="if (this.value == '<?php echo $this->defaultValue; ?>') {this.value=''}">
+<input type="search" name="keywords" id="<?php echo $this->uniqueId; ?>" class="text" value="<?php echo $this->defaultValue; ?>" onblur="if(this.value == '') { this.value='<?php echo $this->defaultValue; ?>'}" onfocus="if (this.value == '<?php echo $this->defaultValue; ?>') {this.value=''}" x-webkit-speech>
 
 <?php if ($this->hideSubmitButton == 0): ?>
 	<input type="submit" id="ctrl_submit_<?php echo $this->uniqueId; ?>" class="submit" value="<?php echo $this->search; ?>">

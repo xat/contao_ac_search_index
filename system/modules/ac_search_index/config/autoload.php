@@ -9,7 +9,7 @@ ClassLoader::addClasses(array
 	'AcSearchIndexCron'              => 'system/modules/ac_search_index/AcSearchIndexCron.php',
 	'AcSearchIndexHelper'            => 'system/modules/ac_search_index/AcSearchIndexHelper.php',
 	'ModuleMootoolsAcSearchIndex'    => 'system/modules/ac_search_index/ModuleMootoolsAcSearchIndex.php',
-	'ModuleJqueryAcSearchIndex'      => 'system/modules/ac_search_index/ModuleJqueryAcSearchIndex.php',
+	'ModuleJqueryAcSearchIndex'      => 'system/modules/ac_search_index/ModuleJQueryAcSearchIndex.php',
 ));
 
 TemplateLoader::addFiles(array

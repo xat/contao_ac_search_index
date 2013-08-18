@@ -86,10 +86,8 @@ class AcSearchIndex extends System
 			// the root site check
 			if ($arrRootPages[0] != '')
 			{
-				$arrWhere[] = 'rootPage IN(?)';
-				$arrValues[] = implode(',', $arrRootPages);
+				$arrWhere[] = 'rootPage IN('.implode(',', $arrRootPages).')';
 			}
-
 
 			// get all keywords from the database
 			$objKeyword = $this->Database->prepare('SELECT DISTINCT word FROM tl_search_index WHERE ' . implode(' AND ', $arrWhere) . ' ORDER BY relevance DESC')
